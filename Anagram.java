@@ -28,16 +28,24 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		boolean anagram = false;
-		for (int i = 0; i < str1.length(); i++) {
-			for (int j = 0; j < str2.length(); j++) {
-				if (str1.charAt(i) == str2.charAt(j)) {
-				  anagram = true;
-				} 
-			}
-		}
-		return anagram;
-	}
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+		if (str1.length() != str2.length()) return false;
+		 boolean anagram = true;
+  for (int i = 0; i < str1.length(); i++) {
+        char c = str1.charAt(i);
+        int count1 = 0;
+        int count2 = 0;
+    for (int j = 0; j < str2.length(); j++) {
+            if (str1.charAt(j) == c) count1++;
+            if (str2.charAt(j) == c) count2++;
+        }
+  if (count1 != count2) {
+        anagram = false;
+        break;
+    }
+	} return anagram;
+}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
@@ -50,8 +58,8 @@ public class Anagram {
 		ans = ans + (char)(str.charAt(i) + 32);
 		} else if (curr >= 97 && curr <= 122) {
 		ans = ans + (char) str.charAt(i);
-		} else {
-			ans = ans;
+		} else if (curr ==' ') {
+			ans = ans + (char) str.charAt(i);
 		}
 		}
 		return ans;
