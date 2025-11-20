@@ -129,22 +129,31 @@ while (a >= b) {
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		int mod = 0;
-		if (div(x1,x2) == 0) {
-			mod = 0;
-		}
-         int x1Negative = 
-		if (x1 > x2) {
-
-		}
+		 if (x2 == 0) {
+        System.out.println("Error");
+        return 0;
+    }
+	int quotient = div(x1, x2);
+    int product = times(quotient, x2);
+    int remainder = minus(x1, product);
+    return remainder;
+}
 		
-		return 0;
-	}	
+	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+		if (x < 0) {
+        System.out.println("Error: negative number");
+        return 0;
+    }
+
+    int result = 0;
+    while (times(result, result) <= x) {
+        result++;
+    }
+		 return minus(result, 1);
+}
 	}	  	
 	
-}
+
