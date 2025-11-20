@@ -87,21 +87,15 @@ return multiplication;
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		int power = x;
-		if (x > 0){
-		for (int i = 1; i < n; i++) {
+		  if (n == 0) return 1;        
+    if (x == 0) return 0;         
+    int power = x;
+    for (int i = 1; i < n; i++) {
         power = times(power, x);
-		}
-	} else if (x < 0) {
-		for (int i = 1; i < n; i++) {
-        power = times(power, x);
-	} 
-	} else if (x == 0) {
-		power = 1;
-	}
-	return power;
+    }
+    return power;
 }
-
+	
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		if (x2 == 0) {
@@ -145,7 +139,7 @@ while (a >= b) {
 	public static int sqrt(int x) {
 		if (x < 0) {
         System.out.println("Error: negative number");
-        return 0;
+        return -1;
     }
 
     int result = 0;
