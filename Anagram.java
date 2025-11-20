@@ -38,15 +38,15 @@ public class Anagram {
 		 for (int i = 0; i < str2.length(); i++) {
 		 if (str2.charAt(i) != ' ') s2 = s2 + str2.charAt(i); 
 		}
-		if (str1.length() != str2.length()) return false;
+		if (s1.length() != s2.length()) return false;
 		 boolean anagram = true;
-  for (int i = 0; i < str1.length(); i++) {
-        char c = str1.charAt(i);
+  for (int i = 0; i < s1.length(); i++) {
+        char c = s1.charAt(i);
         int count1 = 0;
         int count2 = 0;
-    for (int j = 0; j < str2.length(); j++) {
-            if (str1.charAt(j) == c) count1++;
-            if (str2.charAt(j) == c) count2++;
+    for (int j = 0; j < s2.length(); j++) {
+            if (s1.charAt(j) == c) count1++;
+            if (s2.charAt(j) == c) count2++;
         }
   if (count1 != count2) {
         anagram = false;
