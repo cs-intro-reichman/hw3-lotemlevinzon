@@ -30,6 +30,14 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
+		String s1 = ""; 
+		String s2 = ""; 
+		for (int i = 0; i < str1.length(); i++) {
+			 if (str1.charAt(i) != ' ') s1 = s1 + str1.charAt(i);
+		 } 
+		 for (int i = 0; i < str2.length(); i++) {
+		 if (str2.charAt(i) != ' ') s2 = s2 + str2.charAt(i); 
+		}
 		if (str1.length() != str2.length()) return false;
 		 boolean anagram = true;
   for (int i = 0; i < str1.length(); i++) {
